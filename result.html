@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OSINT Result</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-light">
+
+<div class="container mt-4">
+    <h2>OSINT Analysis Report</h2>
+
+    <hr>
+
+    <h4>Risk Assessment</h4>
+    <p><strong>Level:</strong> {{ risk.level }}</p>
+    <p><strong>Score:</strong> {{ risk.score }}</p>
+
+    <hr>
+
+    <h4>Reverse OSINT (Who Might Be Tracking You)</h4>
+    <ul>
+        {% for t in trackers %}
+        <li>{{ t.entity }} — Risk: {{ t.risk_score }} ({{ t.method }})</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <a href="http://127.0.0.1:8050/dashboard/" target="_blank"
+       class="btn btn-warning">
+       View Intelligence Graph Dashboard
+    </a>
+</div>
+
+</body>
+</html>
